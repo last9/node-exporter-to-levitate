@@ -1,0 +1,21 @@
+version: '3.5'
+name: metric_scraper
+
+services:
+  vmagent-scraper:
+    container_name: vmagent-scraper
+    image: victoriametrics/vmagent
+    ports:
+      - "8429:8429"
+    volumes:
+      - ./vmagentdata:/vmagentdata
+      - ./vmagent.yaml:/etc/vmagent/vmagent.yaml
+    command:
+      # This Writes to your Levitate Cluster. https://docs.last9.io/docs/levitate-onboard
+      - "--remoteWrite.url=https://${levitate_username}:${levitate_password}@${levitate_cluster_url}"
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
