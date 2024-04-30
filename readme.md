@@ -30,8 +30,9 @@ git clone https://github.com/last9/node-exporter-to-levitate.git
 
 Before running the `run_containers.sh` script, ensure you set the necessary environment variables:
 ```bash
-export LEVITATE_USERNAME='your_username'
-export LEVITATE_CLUSTER_URL='your_cluster_url'
+export LEVITATE_USERNAME='levitate_cluster_username'
+export LEVITATE_PASSWORD='levitate_cluster_password'
+export LEVITATE_CLUSTER_URL='levitate_cluster_write_url'
 ```
 
 ### 3. Make Scripts Executable
